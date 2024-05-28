@@ -2,11 +2,10 @@
 
 This repository hosts two simple implementations of a chat application in Java. It was developed as a task for the Distributed Systems subject in college.
 
-![_1](https://github.com/raulsteinmetz/chat-application-java/assets/85199336/ceb751a5-b41d-4230-b637-a0b34162bb15)
-![_2](https://github.com/raulsteinmetz/chat-application-java/assets/85199336/be6cef01-fbdd-483d-87fc-1f99f5faf049)
-![_3](https://github.com/raulsteinmetz/chat-application-java/assets/85199336/ca4d0cb0-e60e-4ebf-b238-7bd0b75b251c)
-![_4](https://github.com/raulsteinmetz/chat-application-java/assets/85199336/c4de7027-1c67-475f-a0de-ea40ff79d392)
-
+![_1](https://github.com/raulsteinmetz/chat-java/assets/85199336/d29fba89-d24e-4b21-ac54-50a1334337b7)
+![_2](https://github.com/raulsteinmetz/chat-java/assets/85199336/c906685b-1218-43e0-8c1e-0cef422823b2)
+![_3](https://github.com/raulsteinmetz/chat-java/assets/85199336/79aca8e7-8a3d-4e9d-a8e4-0099d23380fd)
+![_4](https://github.com/raulsteinmetz/chat-java/assets/85199336/831150e9-c6f0-44b8-94f7-cf0c73984b5c)
 
 
 ## Implementations
