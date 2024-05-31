@@ -1,6 +1,15 @@
 package chatv3;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class IRoomChatImpl implements IRoomChat{
+    private Map<String, IUserChat> userList;
+
+    public IRoomChatImpl() {
+        userList = new HashMap<>();
+    }
+
     public void sendMsg(String usrName, String msg) {
         // todo
     }
