@@ -18,7 +18,7 @@ public class IUserChatImpl extends UnicastRemoteObject implements IUserChat, Ser
     private Scanner scanner;
 
     public IUserChatImpl(String serverIp, int serverPort, String serverObjectName) throws RemoteException {
-        super(); // Call the UnicastRemoteObject constructor
+        super();
         this.serverIp = serverIp;
         this.serverPort = serverPort;
         this.scanner = new Scanner(System.in);
