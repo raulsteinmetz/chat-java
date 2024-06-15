@@ -8,14 +8,12 @@ import java.util.ArrayList;
 
 public class IServerChatImpl extends UnicastRemoteObject implements IServerChat {
     private ArrayList<String> roomList;
+    private int port;
 
-    public IServerChatImpl() throws RemoteException {
+    public IServerChatImpl(int port) throws RemoteException {
         super();
+        this.port = port;
         roomList = new ArrayList<>();
-        // adding dummies for now (working on client side)
-        roomList.add("room1");
-        roomList.add("room2");
-        roomList.add("room3");
     }
 
     @Override
@@ -25,7 +23,18 @@ public class IServerChatImpl extends UnicastRemoteObject implements IServerChat 
 
     @Override
     public void createRoom(String roomName) throws RemoteException {
-        // todo
+        if (roomList.contains(roomName)) {
+            throw new RemoteException("Room already exists");
+        }
+
+        try {
+            IRoomChatImpl room = new IRoomChatImpl(roomName);
+            Naming.rebind("//localhost:" + port + "/" + roomName, room);
+            roomList.add(roomName);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RemoteException("Error creating room: " + e.getMessage());
+        }
     }
 
     public static void main(String[] args) {
@@ -36,10 +45,10 @@ public class IServerChatImpl extends UnicastRemoteObject implements IServerChat 
 
         int port = Integer.parseInt(args[0]);
         String objName = args[1];
-        
+
         try {
             LocateRegistry.createRegistry(port);
-            IServerChatImpl server = new IServerChatImpl();
+            IServerChatImpl server = new IServerChatImpl(port);
             Naming.rebind("//localhost:" + port + "/" + objName, server);
             System.out.println("Chat server is ready on port " + port + ".");
         } catch (Exception e) {

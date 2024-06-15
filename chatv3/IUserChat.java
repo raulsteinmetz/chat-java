@@ -1,5 +1,8 @@
 package chatv3;
 
-public interface IUserChat extends java.rmi.Remote {
-    public void deliverMsg(String senderName, String msg);
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+public interface IUserChat extends Remote {
+    void deliverMsg(String senderName, String msg) throws RemoteException;
 }
