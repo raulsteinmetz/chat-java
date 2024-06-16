@@ -218,7 +218,7 @@ public class UserChat extends UnicastRemoteObject implements IUserChat, Serializ
     private void sendMessage(String message) {
         try {
             if (currentRoom != null) {
-                currentRoom.sendMsg(userName, message);
+                currentRoom.deliverAll(userName, message);
             }
         } catch (Exception e) {
             e.printStackTrace();
