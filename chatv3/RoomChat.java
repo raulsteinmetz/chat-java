@@ -5,11 +5,11 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class IRoomChatImpl extends UnicastRemoteObject implements IRoomChat {
+public class RoomChat extends UnicastRemoteObject implements IRoomChat {
     private String roomName;
     private Map<String, IUserChat> userList;
 
-    public IRoomChatImpl(String roomName) throws RemoteException {
+    public RoomChat(String roomName) throws RemoteException {
         super();
         this.roomName = roomName;
         userList = new HashMap<>();
