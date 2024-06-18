@@ -37,7 +37,7 @@ public class ServerChat extends UnicastRemoteObject implements IServerChat {
 
         try {
             RoomChat room = new RoomChat(roomName);
-            Naming.rebind("//localhost:" + port + "/" + roomName, room);
+            Naming.rebind("//172.21.58.226:" + port + "/" + roomName, room);
             roomList.add(roomName);
             roomListModel.addElement(roomName);
         } catch (Exception e) {
@@ -53,9 +53,9 @@ public class ServerChat extends UnicastRemoteObject implements IServerChat {
         }
 
         try {
-            IRoomChat room = (IRoomChat) Naming.lookup("//localhost:" + port + "/" + roomName);
+            IRoomChat room = (IRoomChat) Naming.lookup("//172.21.58.226:" + port + "/" + roomName);
             room.closeRoom();
-            Naming.unbind("//localhost:" + port + "/" + roomName);
+            Naming.unbind("//172.21.58.226:" + port + "/" + roomName);
             roomList.remove(roomName);
             roomListModel.removeElement(roomName);
             JOptionPane.showMessageDialog(null, "Room " + roomName + " has been closed.");
@@ -128,7 +128,7 @@ public class ServerChat extends UnicastRemoteObject implements IServerChat {
         try {
             LocateRegistry.createRegistry(port);
             ServerChat server = new ServerChat(port);
-            Naming.rebind("//localhost:" + port + "/" + objName, server);
+            Naming.rebind("//172.21.58.226:" + port + "/" + objName, server);
             System.out.println("Chat server is ready on port " + port + ".");
             server.startServerGUI();
         } catch (Exception e) {

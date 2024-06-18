@@ -36,9 +36,7 @@ public class RoomChat extends UnicastRemoteObject implements IRoomChat {
 
     @Override
     public void closeRoom() throws RemoteException {
-        for (IUserChat user : userList.values()) {
-            user.deliverMsg("System", "The room has been closed.");
-        }
+        deliverAll("System", "The room has been closed.");
         userList.clear();
     }
 
